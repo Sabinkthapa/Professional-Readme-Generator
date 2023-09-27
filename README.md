@@ -1,10 +1,10 @@
 
-  [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+  [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
   # Title
-  # Readme Generator
+  Reademe-Generator
   
   ## Description
-  This is a node.js command line application that generater Readme file
+  This is nodejs command line application for generating the Readme.md file
   
   ## Table of Contents
   
@@ -17,10 +17,10 @@
   - [License](#license)
   
   ## Installation
-  clone repository, type npm i or npm install in terminal
+  Clone repository , type npm i or npm install in terminal
   
   ## Usage
-  clone repo, in terminal run command: node index.js and then answer the series of questions 
+  Clone repo, run command: node index.js and then choose series of questions
 
   
   ## Contributor
@@ -39,6 +39,6 @@
 
   ## License
  
-  All resources provided by this project are avaiable for free use and distribution,subject to the term of  BSD 3-Clause license.
+  All resources provided by this project are avaiable for free use and distribution,subject to the term of  Apache license.
   (c)Copyright 2023 Sabin
     
