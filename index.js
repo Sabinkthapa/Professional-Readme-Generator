@@ -1,29 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown.js');
+const path = require('path');
 
-function generateReadmeContent(answers) {
-return `
-# ${answers.ProjectName}
 
-## Description
-${answers.Description}
 
-## Features
-${answers.Features}
-
-## Installation
-${answers.Installation}
-
-## Links
-${answers.Links}
-
-## Credits
-${answers.credits}
-
-## License
-${answers.License}
-`
-}
 
 const questions = [
     {
@@ -34,32 +15,41 @@ const questions = [
     {
         type:'input',
         name:'Description',
-        message: 'provide the brief description of your project?',
-    },
-    {
-        type:'input',
-        name:'Features',
-        message: 'Includes brief features of your project?',
+        message: 'what is thes brief description of your project?',
     },
     {
         type:'input',
         name:'Installation',
-        message: 'Installation like package and dependencies installation:',
+        message: 'What is the Installation procedure for the project?',
     },
     {
         type:'input',
-        name:'Links',
-        message: 'Your links to your project',
+        name:'Usage',
+        message: 'What is the usage information for the project?',
+    },
+
+    {
+        type:'input',
+        name:'Contributor',
+        message: 'Who is the contributor of this project',
+    },
+
+    {
+        type:'input',
+        name:'GithubName',
+        message: 'What is your github-profile name?',
     },
     {
         type:'input',
-        name:'Credits',
-        message: 'provide the credits for your project',
+        name:'EmailAddress',
+        message: 'What is your email address?',
     },
+
     {
-        type:'input',
+        type:'list',
         name:'License',
-        message: 'Details on Copyright',
+        message: 'Choose a license for your project',
+        choices: ['Apache', 'Boost', 'BSD 3-Clause', 'BSD 2-Clause']
     },
 ];
 
@@ -75,11 +65,10 @@ function writeToFile(fileName, data) {
 
 
 function init() {
-    inquirer.prompt(questions).then((answers) => {
-        const readmeContent = generateReadmeContent(answers);
+    inquirer.prompt(questions).then((data) => {
+        const readmeContent = generateMarkdown(data);
         writeToFile('README.md', readmeContent);
     });
 }
-
 
 init();
