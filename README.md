@@ -21,8 +21,11 @@
   
   ## Usage
   Clone repo, run command: node index.js and then choose series of questions
+ -some working screenshots on this application
+  -![image-Nodejs](./utils/Images/nodejs1.png)
+  -![image-Nodejs](./utils/Images/nodejs2.png)
+  -![image-Nodejs](./utils/Images/nodejs3.png)
 
-  
   ## Contributor
   Sabin
   
