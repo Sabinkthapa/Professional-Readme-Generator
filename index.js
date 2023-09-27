@@ -1,11 +1,9 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
+const inquirer = require('inquirer'); //imported the inquirer module in a nodejs application
+const fs = require('fs'); //imported the file system module in a nodejs application
 const generateMarkdown = require('./utils/generateMarkdown.js');
 const path = require('path');
 
-
-
-
+//series of questions for users to submit
 const questions = [
     {
         type:'input',
@@ -48,11 +46,12 @@ const questions = [
     {
         type:'list',
         name:'License',
-        message: 'Choose a license for your project',
+        message: 'please choose a license for your project?',
         choices: ['Apache', 'Boost', 'BSD 3-Clause', 'BSD 2-Clause']
     },
 ];
 
+// function writetofile use to write date to the file using fs.writefile method which takes two parameters
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
         if (err) {
@@ -62,8 +61,7 @@ function writeToFile(fileName, data) {
         }
     });
 }
-
-
+// uses inquirer library to prompt user the questions and write the content to file readme.md 
 function init() {
     inquirer.prompt(questions).then((data) => {
         const readmeContent = generateMarkdown(data);

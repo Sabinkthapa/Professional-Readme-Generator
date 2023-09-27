@@ -1,5 +1,5 @@
-// Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+
+//Function that returns the license badge and link based on the user choice for license
 function renderLicenseBadge(License) {
   switch (License){
     case 'Apache':
@@ -14,26 +14,23 @@ function renderLicenseBadge(License) {
       return '';
     }
 }
-
-
+// To return the license section
 function renderLicenseSection(License) {
   if (License==='none') {
     return "";
-    
   }else {
-    return `## license
-    Copyright (c) 2023 Sabin Thapa
-    This project is licensed under the ${License} license.
+    return `
+  All resources provided by this project are avaiable for free use and distribution,subject to the term of  ${License} license.
+  (c)Copyright ${new Date().getFullYear()} Sabin
     `
   }
-
 }
  
 // Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `
   ${renderLicenseBadge(data.License)}
-  #Title
+  # Title
   # ${data.ProjectName}
   
   ## Description
@@ -41,19 +38,20 @@ function generateMarkdown(data) {
   
   ## Table of Contents
   
-  - [Installation] (#Installation)
-  - [Usage] (#usage)
-  - [Contributor] (#contributor)
-  - [GithubName] (#githubname)
-  - [EmailAddress] (emailaddress)
-  - [Questions] (#questions)
-  - License
+  - [Installation](#Installation)
+  - [Usage](#usage)
+  - [Contributor](#contributor)
+  - [GithubName](#githubname)
+  - [EmailAddress](#emailaddress)
+  - [Questions](#questions)
+  - [License](#license)
   
   ## Installation
   ${data.Installation}
   
   ## Usage
   ${data.Usage}
+
   
   ## Contributor
   ${data.Contributor}
@@ -65,10 +63,13 @@ function generateMarkdown(data) {
   ${data.EmailAddress}
 
   ## Questions
-  Please contact me directly at ${data.EmailAddress} or open an issue
+  If you have any questions or need further information, please feel free to contact me
+  Contributor: ${data.Contributor}
+  Email: ${data.EmailAddress}
 
   ## License
  ${renderLicenseSection(data.License)}`;
   }
-
+// Export generateMarkdown function
 module.exports = generateMarkdown;
+
